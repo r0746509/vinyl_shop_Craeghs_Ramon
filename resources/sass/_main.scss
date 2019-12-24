@@ -1,0 +1,14 @@
+main {
+    min-height: 500px;
+}
+
+.cardShopMaster{
+    .card {
+        cursor: pointer;
+    }
+    .card .btn, form .btn {
+        display: none;
+    }
+}
+
+
