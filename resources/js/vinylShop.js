@@ -16,5 +16,12 @@ $(function(){
             .find('label')
             .append('<sup class="text-danger mx-1">*</sup>');
     });
+
     $('nav i.fas').addClass('fa-fw mr-1');
+
+    $('body').tooltip({
+        selector: '[data-toggle="tooltip"]',
+        html : true,
+    });
+
 });

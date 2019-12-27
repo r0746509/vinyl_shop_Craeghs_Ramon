@@ -23,8 +23,18 @@ Auth::routes();
 Route::get('logout', 'Auth\LoginController@logout');
 Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     route::redirect('/', 'records');
+    Route::resource('genres', 'Admin\GenreController');
     Route::get('records', 'Admin\RecordController@index');
 });
+
+Route::redirect('user', '/user/profile');
+Route::middleware(['auth'])->prefix('user')->group(function () {
+    Route::get('profile', 'User\ProfileController@edit');
+    Route::post('profile', 'User\ProfileController@update');
+    Route::get('password', 'User\PasswordController@edit');
+    Route::post('password', 'User\PasswordController@update');
+});
+
 //Route::get('/home', 'HomeController@index')->name('home');
 Route::view('/', 'home');
 Route::get('shop', 'ShopController@index');
