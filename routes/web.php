@@ -23,6 +23,7 @@ Auth::routes();
 Route::get('logout', 'Auth\LoginController@logout');
 Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     route::redirect('/', 'records');
+    Route::get('genres/qryGenres', 'Admin\GenreController@qryGenres');
     Route::resource('genres', 'Admin\GenreController');
     Route::get('records', 'Admin\RecordController@index');
 });
