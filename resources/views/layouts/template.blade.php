@@ -28,4 +28,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <script src="{{ mix('js/app.js') }}"></script>
 @yield('script_after')
+@if(env('APP_DEBUG'))
+    <script>
+        $('form').attr('novalidate', 'true');
+    </script>
+@endif
 </html>

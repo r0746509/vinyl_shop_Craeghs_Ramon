@@ -19,12 +19,22 @@ Route::get('contact-us', function () {
     return view('contact');
 });
 */
+Auth::routes();
+Route::get('logout', 'Auth\LoginController@logout');
+Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
+    route::redirect('/', 'records');
+    Route::get('records', 'Admin\RecordController@index');
+});
+//Route::get('/home', 'HomeController@index')->name('home');
 Route::view('/', 'home');
 Route::get('shop', 'ShopController@index');
 Route::get('shop/{id}', 'ShopController@show');
-Route::view('contact-us', 'contact');
 Route::get('shop_alt', 'ShopController@alt');
-Route::prefix('admin')->group(function(){
-    Route::redirect('/', 'records');
-    Route::get('records', 'Admin\RecordController@index');
-});
+
+Route::view('contact-us', 'contact');
+Route::get('contact-us', 'ContactUsController@show');
+Route::post('contact-us', 'ContactUsController@sendEmail');
+
+
+
+
