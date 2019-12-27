@@ -11,4 +11,8 @@ main {
     }
 }
 
+.btn[disabled] {
+    cursor: not-allowed;
+}
+
 

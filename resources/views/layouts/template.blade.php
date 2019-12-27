@@ -15,6 +15,7 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
 </head>
+
 <body>
 @include('shared.navigation')
 <main class="container mt-3">
@@ -22,7 +23,6 @@
 </main>
 {{--  Footer  --}}
 @include('shared.footer')
-</body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
@@ -31,6 +31,17 @@
 @if(env('APP_DEBUG'))
     <script>
         $('form').attr('novalidate', 'true');
+
     </script>
+
 @endif
+<script>
+    $(".dropdown-toggle").click(function(){
+        $(".dropdown-menu").addClass("show");
+    });
+    $(".dropdown-menu").mouseleave(function(){
+        $(".dropdown-menu").removeClass("show");
+    });
+</script>
+</body>
 </html>
