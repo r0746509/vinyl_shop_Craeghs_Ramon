@@ -1,7 +1,9 @@
 {{-- session key = success --}}
 @if (session()->has('success'))
     <div class="alert alert-success alert-dismissable">
-
+        <button type="button" class="close" data-dismiss="alert" aria-label="Succes">
+            <span aria-hidden="true">×</span>
+        </button>
         <p>{!! session()->get('success') !!}</p>
     </div>
 @endif

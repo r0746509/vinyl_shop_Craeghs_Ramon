@@ -6,6 +6,7 @@ use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class PasswordController extends Controller
 {
@@ -33,6 +34,8 @@ class PasswordController extends Controller
         $user->password = Hash::make($request->password);
         $user->save();
         session()->flash('success', 'Your password has been updated');
-        return back();
+        Auth::logout();
+        return redirect("/login");
+
     }
 }
